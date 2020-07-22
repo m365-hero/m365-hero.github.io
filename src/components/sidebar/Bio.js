@@ -1,7 +1,7 @@
 import React from "react"
 import "./sidebar.css"
 
-import img from "../../images/photo.jpg"
+import img from "../../images/willjw3.jpg"
 
 const Bio = ({ author, tagline }) => {
 
