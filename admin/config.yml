@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: m365-hero/m365-hero.github.io
-  branch: master
+  branch: develop
 
 media_folder: static/assets
 public_folder: assets
