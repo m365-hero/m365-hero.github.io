@@ -28,6 +28,7 @@ const Sidebar = () => {
                                 name 
                                 size 
                                 color
+                                isOfficeUIIcon
                             }
                         }
                     }

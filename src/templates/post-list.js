@@ -93,6 +93,7 @@ export const listQuery = graphql`
                  name 
                  size 
                  color
+                 isOfficeUIIcon
                } 
              }
            }

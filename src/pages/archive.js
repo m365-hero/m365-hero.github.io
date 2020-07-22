@@ -77,6 +77,7 @@ export const pageQuery = graphql`
                  name 
                  size 
                  color
+                 isOfficeUIIcon
                } 
              }
            }

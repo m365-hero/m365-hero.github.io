@@ -31,7 +31,7 @@ const TechTags = (props) => {
         tags.forEach((tag, i) => {
             labels.forEach((label) => {
                 if (tag === label.tag) {
-                    techTags.push(<TechTag key={i} tag={label.tag} tech={label.tech} name={label.name} size={label.size} color={label.color} />)
+                    techTags.push(<TechTag key={i} tag={label.tag} tech={label.tech} name={label.name} size={label.size} color={label.color} isOfficeUIIcon={label.isOfficeUIIcon} />)
                 }
             })
         })
