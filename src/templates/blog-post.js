@@ -11,7 +11,7 @@ import CustomShareBlock from "../components/CustomShareBlock"
 const BlogPost = (props) => {
   const post = props.data.markdownRemark
   const labels = props.data.site.siteMetadata.labels
-  const siteName = props.data.site.siteMetadata.title 
+  const siteName = props.data.site.siteMetadata.title
   const siteUrl = props.data.site.siteMetadata.url
   const url = `${siteUrl}${props.pageContext.slug}`;
   const tags = post.frontmatter.tags
@@ -21,7 +21,18 @@ const BlogPost = (props) => {
     tags.forEach((tag, i) => {
       labels.forEach((label) => {
         if (tag === label.tag) {
-          techTags.push(<TechTag key={i} tag={label.tag} tech={label.tech} name={label.name} size={label.size} color={label.color} />)
+          techTags.push(
+            <TechTag
+              key={i}
+              tag={label.tag}
+              tech={label.tech}
+              size={label.size}
+              color={label.color}
+              path={label.path}
+              viewBox={label.viewBox}
+              transform={label.transform}
+            />
+          );
         }
       })
     })
@@ -62,11 +73,12 @@ export const query = graphql`
           title
           labels {
               tag
-              tech 
-              name 
+              tech                                 
               size 
               color
-              isOfficeUIIcon
+              path
+              viewBox
+              transform
           }
         }
     }

@@ -51,7 +51,7 @@ const AboutPage = (props) => {
                                 <TechTag tag="nodejs" tech="Node.js" name={tags["nodejs"]} size={20} color="lightgreen" />
                                 <TechTag tag="html" tech="HTML" name={tags["html"]} size={20} color="darkorange" />
                                 <TechTag tag="css" tech="CSS" name={tags["css"]} size={20} color="teal" />
-                            </div>  
+                            </div>
                         </div>
                         <div className="mt-4">
                             <span className="text-success d-inline-block" title="prism">
@@ -84,11 +84,12 @@ export const pageQuery = graphql`
             siteMetadata {
                 labels {
                     tag
-                    tech 
-                    name 
+                    tech                                 
                     size 
                     color
-                    isOfficeUIIcon
+                    path
+                    viewBox
+                    transform  
                 }
             }
         }

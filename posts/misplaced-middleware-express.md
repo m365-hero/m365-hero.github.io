@@ -1,6 +1,6 @@
 ---
 title: 'Misplaced Middleware in Express'
-tags: ["nodejs", "express", "sharepoint", "powerapps"]
+tags: ["nodejs", "express", "sharepoint", "powerapps", "pnpjs"]
 published: true
 date: '2018-12-29'
 ---

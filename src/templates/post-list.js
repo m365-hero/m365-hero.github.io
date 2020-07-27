@@ -22,7 +22,18 @@ const PostList = (props) => {
         tags.forEach((tag, i) => {
             labels.forEach((label) => {
                 if (tag === label.tag) {
-                    techTags.push(<TechTag key={i} tag={label.tag} tech={label.tech} name={label.name} size={label.size} color={label.color} />)
+                    techTags.push(
+                        <TechTag
+                            key={i}
+                            tag={label.tag}
+                            tech={label.tech}
+                            size={label.size}
+                            color={label.color}
+                            path={label.path}
+                            viewBox={label.viewBox}
+                            transform={label.transform}
+                        />
+                    )
                 }
             })
         })
@@ -81,46 +92,47 @@ const PostList = (props) => {
     )
 }
 
-export const listQuery = graphql`
-         query paginateQuery($skip: Int!, $limit: Int!) {
-           site {
-             siteMetadata {
-               title 
-               author
-               labels {
-                 tag
-                 tech 
-                 name 
-                 size 
-                 color
-                 isOfficeUIIcon
-               } 
-             }
-           }
-           allMarkdownRemark(
-             limit: $limit
-             skip: $skip
-             sort: { fields: [frontmatter___date], order: DESC }
-             filter: { frontmatter: { published: { eq: true } } }
-           ) {
-             totalCount
-             edges {
-               node {
-                 excerpt(pruneLength: 200)
-                 html
-                 id
-                 frontmatter {
-                   title
-                   date(formatString: "MMMM DD, YYYY")
-                   tags
-                 }
-                 fields {
-                   slug
-                 }
-               }
-             }
-           }
-         }
-       `
+//export const listQuery = graphql`
+//         query paginateQuery($skip: Int!, $limit: Int!) {
+//           site {
+//             siteMetadata {
+//               title 
+//               author
+//               labels {
+//                 tag
+//                 tech                                 
+//                 size 
+//                 color
+//                 path
+//                 viewBox
+//                 transform  
+//               } 
+//             }
+//           }
+//           allMarkdownRemark(
+//             limit: $limit
+//             skip: $skip
+//             sort: { fields: [frontmatter___date], order: DESC }
+//             filter: { frontmatter: { published: { eq: true } } }
+//           ) {
+//             totalCount
+//             edges {
+//               node {
+//                 excerpt(pruneLength: 200)
+//                 html
+//                 id
+//                 frontmatter {
+//                   title
+//                   date(formatString: "MMMM DD, YYYY")
+//                   tags
+//                 }
+//                 fields {
+//                   slug
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       `
 
 export default PostList

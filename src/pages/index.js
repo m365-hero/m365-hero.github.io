@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
   const labels = data.site.siteMetadata.labels
   const currentPage = 1
-  const postsPerPage = 10 // see limit in graphql query below
+  const postsPerPage = 3 // see limit in graphql query below
   const nextPage = (currentPage + 1).toString()
   const hasNextPage = data.allMarkdownRemark.totalCount > postsPerPage
 
@@ -21,7 +21,18 @@ const IndexPage = ({ data }) => {
     tags.forEach((tag, i) => {
       labels.forEach((label) => {
         if (tag === label.tag) {
-          techTags.push(<TechTag key={i} tag={label.tag} tech={label.tech} name={label.name} size={label.size} color={label.color} isOfficeUIIcon={label.isOfficeUIIcon} />)
+          techTags.push(
+            <TechTag
+              key={i}
+              tag={label.tag}
+              tech={label.tech}
+              size={label.size}
+              color={label.color}
+              path={label.path}
+              viewBox={label.viewBox}
+              transform={label.transform}
+            />
+          )
         }
       })
     })
@@ -83,16 +94,17 @@ export const pageQuery = graphql`
                author
                labels {
                  tag
-                 tech 
-                 name 
+                 tech                                 
                  size 
                  color
-                 isOfficeUIIcon
+                 path
+                 viewBox
+                 transform  
                } 
              }
            }
            allMarkdownRemark(
-             limit: 10
+             limit: 3
              sort: { fields: [frontmatter___date], order: DESC }
              filter: { frontmatter: { published: { eq: true } } }
            ) {

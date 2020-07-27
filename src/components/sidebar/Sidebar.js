@@ -24,16 +24,17 @@ const Sidebar = () => {
                             }
                             labels {
                                 tag
-                                tech
-                                name 
+                                tech                                 
                                 size 
                                 color
-                                isOfficeUIIcon
+                                path
+                                viewBox
+                                transform                                
                             }
                         }
                     }
                     allMarkdownRemark(
-                        limit: 10
+                        limit: 3
                         sort: { fields: [frontmatter___date], order: DESC }
                         filter: { frontmatter: { published: { eq: true } } }
                     ) {

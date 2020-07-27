@@ -4,7 +4,7 @@ import "./tags.css"
 import { Link } from "gatsby";
 
 const TechTag = (props) => {
-    const { tag, tech, name, size, color, isOfficeUIIcon } = props
+    const { tag, tech, size, color, path, viewBox, transform } = props
 
     return (
         <div className="d-inline-block p-1">
@@ -13,19 +13,19 @@ const TechTag = (props) => {
                     <p className="d-inline">{tech} </p>
                     <div className="d-inline" style={{ fontSize: size, color: color }}>
                         {
-                            isOfficeUIIcon === true ?
-                                <svg role="img" viewBox="-10 0 2068 2048" xmlns="http://www.w3.org/2000/svg" width={size} height={size} style={{ fill: `${color}` }}>
+                            transform !== "" ?
+                                <svg role="img" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg" width={size} height={size} style={{ fill: `${color}` }}>
                                     <title>{tech} </title>
-                                    <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                    <g transform={transform}>
                                         <path
-                                            d={name} />
+                                            d={path} />
                                     </g>
                                 </svg>
                                 :
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width={size} height={size} style={{ fill: `${color}` }}>
+                                <svg role="img" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg" width={size} height={size} style={{ fill: `${color}` }}>
                                     <title>{tech} </title>
                                     <path
-                                        d={name} />
+                                        d={path} />
                                 </svg>
                         }
                     </div>
